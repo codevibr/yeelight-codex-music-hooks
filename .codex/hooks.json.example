@@ -1,0 +1,27 @@
+{
+  "hooks": {
+    "PermissionRequest": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${YEELIGHT_CODEX_PYTHON} -B \"${YEELIGHT_CODEX_ROOT}\\.codex\\hooks\\yeelight_status_hook.py\"",
+            "statusMessage": "Setting Yeelight prompt state"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${YEELIGHT_CODEX_PYTHON} -B \"${YEELIGHT_CODEX_ROOT}\\.codex\\hooks\\yeelight_status_hook.py\"",
+            "statusMessage": "Setting Yeelight idle state"
+          }
+        ]
+      }
+    ]
+  }
+}

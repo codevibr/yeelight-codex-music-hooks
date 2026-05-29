@@ -1,0 +1,50 @@
+# Yeelight Status Bridge
+
+When working in this workspace, use the local Yeelight status bridge when
+available.
+
+Call this before meaningful analysis, file inspection, tool use, implementation,
+or verification work:
+
+```powershell
+${YEELIGHT_CODEX_PYTHON} "${YEELIGHT_CODEX_ROOT}\assistant_light.py" thinking --quiet --ignore-errors
+```
+
+Do not set `thinking` merely because a Codex workspace/session started or was
+resumed. For startup or resume cleanup with no user-visible work, leave or set
+the lamp to `idle`.
+
+Call this immediately before asking the user for input, approval, a choice, or
+confirmation:
+
+```powershell
+${YEELIGHT_CODEX_PYTHON} "${YEELIGHT_CODEX_ROOT}\assistant_light.py" prompt --quiet --ignore-errors
+```
+
+Leave the lamp in `prompt` while waiting for the user. Do not send `idle`
+immediately after a prompt.
+
+Call this when blocked by an error that needs user intervention, including
+missing local tooling, unavailable permissions, usage limits, or inaccessible
+required services:
+
+```powershell
+${YEELIGHT_CODEX_PYTHON} "${YEELIGHT_CODEX_ROOT}\assistant_light.py" error --quiet --ignore-errors
+```
+
+Leave the lamp in `error` while waiting for intervention.
+
+Call this before sending a final response when the work for this turn is
+complete and the assistant is not blocked waiting for a required user action:
+
+```powershell
+${YEELIGHT_CODEX_PYTHON} "${YEELIGHT_CODEX_ROOT}\assistant_light.py" idle --quiet --ignore-errors
+```
+
+For completed status reports, summaries, explanations, or optional follow-up
+suggestions, leave the lamp in `idle`. Only leave `prompt` for a final response
+when the assistant is genuinely waiting on a required user action before work can
+continue.
+
+These commands are best-effort status notifications and must not block or
+replace the user's requested work.

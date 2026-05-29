@@ -1,0 +1,25 @@
+__pycache__/
+*.pyc
+
+# Bridge/runtime logs and state
+bridge.out.log
+bridge.err.log
+bridge_stdout.log
+bridge_stderr.log
+yeelight_hook.log
+yeelight_last_state.json
+yeelight_prompt_latch.json
+.codex/prompt_latch.json
+
+# Local temp files
+.env
+AGENTS.md
+/AGENTS.md
+idle-off-test.ini
+tools/
+
+# Generated local Codex config rendered from .env
+.codex/*.json
+!.codex/*.example
+!.codex/hooks.json.example
+.codex/hooks.json
